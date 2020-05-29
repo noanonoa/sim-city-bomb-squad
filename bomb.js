@@ -27,7 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ---------- Functions ---------- //
     function reset() {
-        console.log("clicked reset");
+        timer.classList.remove("green");
+        body.classList.remove("flat");
+        for (let wire in wireState) {
+            wireState[wire] = false;
+        }
+        wiresToCut = [];
+        // ** Reset the background image  ** //
+        for (let i = 0; i < wireBox.children.length; i++) {
+            let color = wireBox.children[i].id;
+            wireBox.children[i].src = "img/uncut-" + color + "-wire.png";
+        }
         init();
     }
     
